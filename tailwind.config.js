@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const config = {
+module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,19 +8,7 @@ const config = {
   theme: {
     extend: {
       colors: {
-        // Custom neon green colors
         'neon': {
-          100: '#d0ffdc',
-          200: '#a1ffba',
-          300: '#72ff97',
-          400: '#43ff75',
-          500: '#00ff41',  // Primary neon green
-          600: '#00cc34',  // Darker variant
-          700: '#009927',
-          800: '#00661a',
-          900: '#00330d',
-        },
-        green: {
           100: '#d0ffdc',
           200: '#a1ffba',
           300: '#72ff97',
@@ -39,6 +27,4 @@ const config = {
     },
   },
   plugins: [],
-};
-
-module.exports = config;
+}

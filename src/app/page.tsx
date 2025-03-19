@@ -1,4 +1,5 @@
 'use client';
+import './globals.css'
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
@@ -35,11 +36,14 @@ export default function Home() {
     
     function draw() {
       // Set semi-transparent black to create the fade effect
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      ctx.fillStyle = "#0f0"; // Green color
-      ctx.font = `${fontSize}px monospace`;
+      if(ctx){
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = "#0f0"; // Green color
+        ctx.font = `${fontSize}px monospace`;
+      }
+     
       
       // Loop through each drop
       for (let i = 0; i < drops.length; i++) {
@@ -47,7 +51,10 @@ export default function Home() {
         const text = chars[Math.floor(Math.random() * chars.length)];
         
         // Draw the character
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if(ctx){
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        }
+        
         
         // Move drops down
         drops[i]++;
